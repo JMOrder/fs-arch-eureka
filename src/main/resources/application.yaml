@@ -1,0 +1,37 @@
+server:
+  port: 8761
+  address: 127.0.0.1
+
+spring:
+  application:
+    name: service-discovery
+
+eureka:
+  environment: local
+  rateLimiter:
+    enabled: false
+    throttleStandardClients: false
+    burstSize: 10
+    registryFetchAverageRate: 500
+    fullFetchAverageRate: 100
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    responseCacheUpdateIntervalMs: 30000
+    minThreadsForPeerReplication: 5
+    maxThreadsForPeerReplication: 20
+    maxTimeForReplication: 30000
+    minThreadsForStatusReplication: 1
+    maxThreadsForStatusReplication: 1
+    numberOfReplicationRetries: 5
+    peerEurekaStatusRefreshTimeIntervalMs: 30000
+    waitTimeInMsWhenSyncEmpty: 0
+    peerNodeConnectTimeoutMs: 200
+    peerNodeReadTimeoutMs: 200
+    peerNodeTotalConnections: 1000
+    peerNodeTotalConnectionsPerHost: 500
